@@ -9,9 +9,9 @@ export const metadata: Metadata = {
     description: "ML/Full-stack engineer specializing in computer vision, NLP, and high-impact projects",
     images: [
       {
-        url: "https://3vqns.github.io/evans-portfolio/headshot.png",
-        width: 1200,
-        height: 1200,
+        url: "https://3vqns.github.io/evans-portfolio/headshot-preview.png",
+        width: 1792,
+        height: 1800,
         alt: "Evans Armantrading III",
       },
     ],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evans Armantrading III | Portfolio",
     description: "ML/Full-stack engineer specializing in computer vision, NLP, and high-impact projects",
-    images: ["https://3vqns.github.io/evans-portfolio/headshot.png"],
+    images: ["https://3vqns.github.io/evans-portfolio/headshot-preview.png"],
   },
 };
 
