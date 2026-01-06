@@ -74,53 +74,6 @@ src/
     └── useMediaQuery.ts  # Media query hook
 ```
 
-## Assets
-
-Place your project poster images in `public/posters/`:
-- `sturgeon.jpg`
-- `aiid.jpg`
-- `gonephishin.jpg`
-- `fico.jpg`
-- `blackjack.jpg`
-- `expense.jpg`
-
-Place your resume PDF at `public/resume.pdf`.
-
-## Customization
-
-### Colors
-
-Edit `tailwind.config.ts` to customize the color palette.
-
-### Projects
-
-Edit `src/data/projects.ts` to add, remove, or modify projects.
-
-### 3D Scenes
-
-Each scene in `src/three/scenes/` can be customized. The `progress` prop (0-1) represents scroll progress through the section.
-
-## Deployment
-
-### GitHub Pages
-
-This project is configured for static export and deployed to GitHub Pages at:
-**https://3vqns.github.io/evans-portfolio/**
-
-Deployment is automated via GitHub Actions. On every push to `main`, the site is built and deployed automatically.
-
-**Local Build:**
-```bash
-npm run build
-```
-
-The static export will be generated in the `out/` directory.
-
-**GitHub Pages Settings:**
-- Go to your repository Settings → Pages
-- Source should be set to "GitHub Actions"
-- The workflow will deploy automatically on push to `main`
-
 ## License
 
 MIT
