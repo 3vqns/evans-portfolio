@@ -188,7 +188,13 @@ export default function ProjectSection({ project }: ProjectSectionProps) {
                 src={`/evans-portfolio/posters/${project.sceneId}.png`}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className={
+                  project.sceneId === "fico"
+                    ? "object-cover object-left-top"
+                    : project.sceneId === "expense"
+                    ? "object-contain"
+                    : "object-cover"
+                }
               />
             </div>
 
