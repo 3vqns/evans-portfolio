@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 import { durations, easing } from "./MotionTokens";
 
 const navItems = [
-  { label: "Home", href: "/#home" },
+  { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Awards", href: "/#awards" },
-  { label: "About", href: "/#about" },
-  { label: "Resume", href: "/#resume" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Awards", href: "/awards" },
+  { label: "About", href: "/about" },
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -51,12 +51,8 @@ export default function Nav() {
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => {
-              // Only mark as active if:
-              // 1. Exact pathname match (for /projects page)
-              // 2. OR it's a hash link and we're on home page (for /#home, /#about, etc.)
-              const isActive = 
-                pathname === item.href || 
-                (item.href.startsWith("/#") && pathname === "/" && item.href === "/#home");
+              // Mark as active if pathname matches
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
@@ -92,9 +88,7 @@ export default function Nav() {
                 className="absolute right-0 top-full mt-2 w-48 bg-jungle-900/95 backdrop-blur-md border border-emerald-500/20 rounded-lg shadow-lg overflow-hidden"
               >
                 {navItems.map((item) => {
-                  const isActive = 
-                    pathname === item.href || 
-                    (item.href.startsWith("/#") && pathname === "/" && item.href === "/#home");
+                  const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.href}
