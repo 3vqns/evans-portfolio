@@ -26,13 +26,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             src={`/evans-portfolio/posters/${project.sceneId}.png`}
             alt={project.title}
             fill
-            className={`transition-transform duration-500 group-hover:scale-110 ${
-              project.sceneId === "fico"
-                ? "object-cover object-left-top"
-                : project.sceneId === "expense"
-                ? "object-contain"
-                : "object-cover"
-            }`}
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-jungle-900/80 via-jungle-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
