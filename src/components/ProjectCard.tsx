@@ -23,7 +23,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         {/* Image placeholder */}
         <div className="relative w-full h-64 md:h-80 overflow-hidden">
           <Image
-            src={`/posters/${project.sceneId}.png`}
+            src={`/evans-portfolio/posters/${project.sceneId}.png`}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"

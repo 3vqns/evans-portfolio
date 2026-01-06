@@ -10,19 +10,19 @@ const awards = [
     title: "1st Place - MAC-AFS Conference",
     description: "AI-Driven Sturgeon Breach Detection project earned first place at the MAC-AFS Conference, competing against graduate-level research and demonstrating excellence in computer vision applications for conservation research.",
     icon: "🏆",
-    imagePath: "/awards/MACAFS_Presentation_Pic.png",
+    imagePath: "/evans-portfolio/awards/MACAFS_Presentation_Pic.png",
   },
   {
     title: "3rd Place - Delaware State University Hackathon",
     description: "Gone Phishin' Chrome extension secured third place at the Delaware State University Hackathon as part of a team project, delivering real-time phishing detection in the browser using AI-based email analysis.",
     icon: "🥉",
-    imagePath: "/awards/2025_DSU_Hackathon.jpeg",
+    imagePath: "/evans-portfolio/awards/2025_DSU_Hackathon.jpeg",
   },
   {
     title: "Challenge Winners - FICO Educational Analytics Challenge",
     description: "Won the FICO Educational Analytics Challenge as part of The Transformers team, achieving ~92% accuracy on the official golden dataset for customer conversation intent classification under noisy, real-world conditions.",
     icon: "📊",
-    imagePath: "/awards/FICO_Logo.png",
+    imagePath: "/evans-portfolio/awards/FICO_Logo.png",
   },
 ];
 

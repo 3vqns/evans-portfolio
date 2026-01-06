@@ -185,7 +185,7 @@ export default function ProjectSection({ project }: ProjectSectionProps) {
             {/* Image with parallax */}
             <div className="absolute inset-0">
               <Image
-                src={`/posters/${project.sceneId}.png`}
+                src={`/evans-portfolio/posters/${project.sceneId}.png`}
                 alt={project.title}
                 fill
                 className="object-cover"

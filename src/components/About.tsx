@@ -30,7 +30,7 @@ export default function About() {
             className="relative aspect-square rounded-lg overflow-hidden"
           >
             <Image
-              src="/headshot.png"
+              src="/evans-portfolio/headshot.png"
               alt="Evans Armantrading III"
               fill
               className="object-cover"
