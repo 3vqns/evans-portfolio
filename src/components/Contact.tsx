@@ -23,7 +23,7 @@ export default function Contact() {
           variants={fadeInUp}
           className="text-xl text-cream-50/70 mb-12 max-w-2xl mx-auto"
         >
-          Interested in discussing opportunities, learning more about my experience, or exploring how I can contribute to your team? I'd love to hear from you.
+          Interested in discussing opportunities, learning more about my experience, or exploring how I can contribute to your team? I&apos;d love to hear from you.
         </motion.p>
 
         <motion.div
