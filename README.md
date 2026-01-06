@@ -1,10 +1,9 @@
 # Evans Armantrading III - Portfolio Website
 
-A modern, premium portfolio website featuring scroll-driven 3D project backgrounds, built with Next.js, React Three Fiber, and Framer Motion.
+A modern, premium portfolio website built with Next.js, React Three Fiber, and Framer Motion.
 
 ## Features
 
-- **Scroll-Driven 3D Animations**: Each project section features a unique 3D scene that animates based on scroll progress
 - **Project Search & Filter**: Search projects by title, tech stack, or tags, and filter by category
 - **Responsive Design**: Desktop-first experience with mobile fallbacks to static images
 - **Accessibility**: Respects `prefers-reduced-motion` and provides proper contrast
