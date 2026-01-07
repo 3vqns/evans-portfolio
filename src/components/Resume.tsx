@@ -6,8 +6,8 @@ import { fadeInUp } from "./MotionTokens";
 export default function Resume() {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/evans-portfolio/resume.pdf";
-    link.download = "Evans_Armantrading_III_Resume.pdf";
+    link.href = "/evans-portfolio/Evans_ArmantradingIII_Resume.pdf";
+    link.download = "Evans_ArmantradingIII_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
