@@ -1,20 +1,20 @@
 # Evans Armantrading III - Portfolio Website
 
-A modern, premium portfolio website built with Next.js, React Three Fiber, and Framer Motion.
+A modern, premium portfolio website built with Next.js and Framer Motion.
 
 ## Features
 
 - **Project Search & Filter**: Search projects by title, tech stack, or tags, and filter by category
-- **Responsive Design**: Desktop-first experience with mobile fallbacks to static images
+- **Responsive Design**: Fully responsive with mobile-optimized layouts
 - **Accessibility**: Respects `prefers-reduced-motion` and provides proper contrast
 - **Premium Minimal Design**: Emerald green + dark jungle green + cream color palette
+- **Scroll-driven Animations**: Smooth parallax effects and scroll-triggered reveals
 
 ## Tech Stack
 
 - **Next.js 14** (App Router)
 - **TypeScript**
 - **TailwindCSS**
-- **React Three Fiber** + **drei** for 3D graphics
 - **Framer Motion** for animations
 
 ## Getting Started
@@ -45,32 +45,32 @@ npm start
 ```
 src/
 ├── app/
-│   ├── page.tsx          # Main page with all sections
+│   ├── page.tsx          # Main home page
 │   ├── layout.tsx        # Root layout
-│   └── globals.css       # Global styles
+│   ├── globals.css       # Global styles
+│   ├── about/            # About page
+│   ├── awards/           # Awards page
+│   ├── contact/          # Contact page
+│   ├── projects/         # Projects detail page
+│   └── resume/           # Resume page
 ├── components/
 │   ├── Nav.tsx           # Navigation component
-│   ├── Section.tsx       # Section wrapper
+│   ├── Hero.tsx          # Hero section
+│   ├── About.tsx         # About section
+│   ├── SelectedWork.tsx  # Project gallery with search/filter
 │   ├── ProjectCard.tsx   # Project card component
-│   ├── ProjectSearch.tsx # Project search/filter
-│   ├── ResumeCTA.tsx     # Resume download CTA
-│   └── ContactCTA.tsx    # Contact section CTA
-├── three/
-│   ├── PortfolioCanvas.tsx # Main 3D canvas
-│   ├── SceneManager.tsx    # Scene switching logic
-│   └── scenes/            # Individual 3D scenes
-│       ├── SturgeonScene.tsx
-│       ├── AIIDScene.tsx
-│       ├── GonePhishinScene.tsx
-│       ├── FICOScene.tsx
-│       ├── BlackJackScene.tsx
-│       └── ExpenseScene.tsx
+│   ├── ProjectSection.tsx # Full project detail section
+│   ├── Awards.tsx        # Awards section
+│   ├── Resume.tsx        # Resume download section
+│   ├── Contact.tsx       # Contact section
+│   ├── ScrollProgress.tsx # Scroll progress indicator
+│   └── MotionTokens.ts   # Animation system
 ├── data/
 │   └── projects.ts       # Project data
-├── lib/
-│   └── scrollProgress.ts # Scroll progress utilities
-└── hooks/
-    └── useMediaQuery.ts  # Media query hook
+├── hooks/
+│   └── useMediaQuery.ts  # Media query hook
+└── lib/
+    └── scrollProgress.ts # Scroll utilities
 ```
 
 ## License
