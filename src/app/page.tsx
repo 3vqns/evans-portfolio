@@ -9,6 +9,9 @@ import Awards from "@/components/Awards";
 import About from "@/components/About";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import Leadership from "@/components/Leadership";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -27,9 +30,15 @@ export default function Home() {
 
       <About />
 
+      <Skills />
+
+      <Experience />
+
       <SelectedWork projects={projects} onProjectClick={handleProjectClick} />
 
       <Awards />
+
+      <Leadership />
 
       <Resume />
 
