@@ -7,6 +7,7 @@ export interface Project {
   category: "Research/ML" | "Security" | "Full-Stack" | "Java/OOP" | "Hackathon";
   tags: string[];
   sceneId: string;
+  posterExt?: string;
   detailedDescription?: string;
   challenges?: string[];
   keyAchievements?: string[];
@@ -204,6 +205,7 @@ export const projects: Project[] = [
     category: "Hackathon",
     tags: ["Hackathon", "Full-Stack", "Award Winner", "AWS"],
     sceneId: "pictureme",
+    posterExt: "jpeg",
     metrics: [
       { label: "Award", value: "1st Place" },
       { label: "Event", value: "DSU Hackathon" },
@@ -227,6 +229,7 @@ export const projects: Project[] = [
     category: "Hackathon",
     tags: ["Hackathon", "Computer Vision", "Full-Stack", "Award Winner"],
     sceneId: "smoothcruize",
+    posterExt: "jpeg",
     metrics: [
       { label: "Award", value: "1st Place" },
       { label: "Event", value: "UD Hackathon" },
@@ -251,6 +254,7 @@ export const projects: Project[] = [
     category: "Research/ML",
     tags: ["IoT", "Machine Learning", "Mobile", "Healthcare"],
     sceneId: "poultryguard",
+    posterExt: "jpeg",
     detailedDescription: "A mobile app that streams real-time IoT sensor data (temperature, humidity, CO₂, activity, ammonia) from poultry farm sensors and runs a multi-label neural network on-device to predict risk levels for three disease categories: Heat Stress, Avian Flu, and Salmonella.",
     keyAchievements: [
       "Designed and built a real-time IoT sensor data dashboard for poultry farm monitoring",
