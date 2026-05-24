@@ -54,6 +54,17 @@ export default function About() {
             <p className="text-xl text-cream-50/80 leading-relaxed">
               Outside of engineering, I played basketball throughout high school and currently compete on a college club team. These experiences reinforced discipline, teamwork, and performing under pressure—skills that directly shape how I approach technical challenges and collaboration.
             </p>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              {["GPA: 3.91", "Dean's List (4x)", "1890 Scholar", "Inspire Scholar", "Google Cybersecurity Cert"].map((chip) => (
+                <span
+                  key={chip}
+                  className="px-4 py-1.5 text-sm border border-emerald-500/30 text-emerald-300 rounded-full bg-emerald-500/10"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

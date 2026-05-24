@@ -24,6 +24,18 @@ const awards = [
     icon: "📊",
     imagePath: "/evans-portfolio/awards/FICO_Logo.png",
   },
+  {
+    title: "1st Place - Delaware State University Hackathon",
+    description: "PictureMe, a live event photo-matching platform powered by AWS Rekognition, won first place at the DSU Hackathon. Built and shipped in a single hackathon session with a team.",
+    icon: "🏆",
+    imagePath: null,
+  },
+  {
+    title: "1st Place - University of Delaware Hackathon",
+    description: "Smooth-Cruize, a full-stack pothole detection platform using YOLOv8 and Google Gemini, won first place at the UD Hackathon. Led development of the full-stack system across Python backend and Next.js frontend.",
+    icon: "🏆",
+    imagePath: null,
+  },
 ];
 
 export default function Awards() {

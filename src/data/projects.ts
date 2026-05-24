@@ -4,7 +4,7 @@ export interface Project {
   outcome: string;
   role: string;
   stack: string[];
-  category: "Research/ML" | "Security" | "Full-Stack" | "Java/OOP";
+  category: "Research/ML" | "Security" | "Full-Stack" | "Java/OOP" | "Hackathon";
   tags: string[];
   sceneId: string;
   detailedDescription?: string;
@@ -194,5 +194,70 @@ export const projects: Project[] = [
     ],
     technicalDetails:
       "Pure HTML, CSS, and JavaScript implementation with no frameworks. Used vanilla JavaScript for DOM manipulation and event handling. Implemented custom state management pattern using JavaScript objects and functions. Created responsive design using CSS Grid and Flexbox. Used localStorage API for data persistence. Built custom chart visualizations using Canvas API for expense analytics. Implemented form validation and error handling for user input.",
+  },
+  {
+    id: "pictureme",
+    title: "PictureMe",
+    outcome: "Built and deployed a live event photo-matching platform on Vercel that earned 1st place at the DSU Hackathon. Attendees instantly find photos they appear in using AWS Rekognition face indexing — no manual browsing required.",
+    role: "Full-Stack Developer (Team Project)",
+    stack: ["React", "Vite", "Supabase", "AWS Rekognition", "Cloudinary", "Vercel"],
+    category: "Hackathon",
+    tags: ["Hackathon", "Full-Stack", "Award Winner", "AWS"],
+    sceneId: "pictureme",
+    metrics: [
+      { label: "Award", value: "1st Place" },
+      { label: "Event", value: "DSU Hackathon" },
+    ],
+    detailedDescription: "A live event photo-matching platform that uses facial recognition to help attendees instantly find photos they appear in without scrolling through hundreds of images. Built and shipped in a single hackathon session.",
+    keyAchievements: [
+      "Won 1st place at the Delaware State University Hackathon",
+      "Implemented AWS Rekognition face indexing and search for real-time photo matching",
+      "Built QR-based event join flow with per-event role permissions (creator/admin/member)",
+      "Designed the data model in Supabase and integrated Cloudinary for photo storage and delivery",
+      "Deployed live to Vercel during the hackathon",
+    ],
+    technicalDetails: "React + Vite frontend deployed to Vercel. Supabase handles auth, the Postgres data model, and real-time updates. AWS Rekognition indexes uploaded photos by detected faces, then matches against a reference selfie to power the My Photos gallery. Cloudinary manages photo storage and optimized delivery.",
+  },
+  {
+    id: "smoothcruize",
+    title: "Smooth-Cruize",
+    outcome: "Led development of a full-stack pothole detection and work-order platform that won 1st place at the University of Delaware Hackathon. YOLO-based dashcam video pipeline detects potholes at 92% accuracy and routes them to a Google Maps dashboard with AI-generated severity scores.",
+    role: "Lead Developer (Team Project)",
+    stack: ["FastAPI", "Next.js", "TypeScript", "Supabase", "YOLOv8", "Google Gemini API", "Google Maps API"],
+    category: "Hackathon",
+    tags: ["Hackathon", "Computer Vision", "Full-Stack", "Award Winner"],
+    sceneId: "smoothcruize",
+    metrics: [
+      { label: "Award", value: "1st Place" },
+      { label: "Event", value: "UD Hackathon" },
+      { label: "Accuracy", value: "92%" },
+    ],
+    detailedDescription: "A full-stack infrastructure tool that turns dashcam footage into actionable pothole work orders. The system detects potholes in video using YOLOv8, uses Google Gemini to generate severity scores and damage descriptions, and surfaces everything in a Google Maps dashboard for review and dispatch.",
+    keyAchievements: [
+      "Won 1st place at the University of Delaware Hackathon",
+      "Led full-stack development across Python backend and Next.js frontend",
+      "Built YOLO-based video processing pipeline detecting potholes at 92% accuracy",
+      "Integrated Google Gemini to auto-generate severity scores (1–10) and AI damage descriptions",
+      "Developed Next.js dashboard with Google Maps visualization and work order management",
+    ],
+    technicalDetails: "FastAPI Python backend handles YOLO video processing, clip extraction, and Supabase integration (Postgres, Storage, Auth). Google Gemini API generates severity scores and natural-language damage descriptions per detection. Next.js + TypeScript frontend with Google Maps API visualizes detection locations. All uploaded to Supabase Storage with metadata in Postgres.",
+  },
+  {
+    id: "poultryguard",
+    title: "PoultryGuard",
+    outcome: "Building a flock health monitoring app that connects to real-time IoT sensor data and uses a multi-label neural network to predict disease risk levels for Heat Stress, Avian Flu, and Salmonella.",
+    role: "Developer (Team Project)",
+    stack: ["React Native", "Expo", "TensorFlow.js"],
+    category: "Research/ML",
+    tags: ["IoT", "Machine Learning", "Mobile", "Healthcare"],
+    sceneId: "poultryguard",
+    detailedDescription: "A mobile app that streams real-time IoT sensor data (temperature, humidity, CO₂, activity, ammonia) from poultry farm sensors and runs a multi-label neural network on-device to predict risk levels for three disease categories: Heat Stress, Avian Flu, and Salmonella.",
+    keyAchievements: [
+      "Designed and built a real-time IoT sensor data dashboard for poultry farm monitoring",
+      "Trained a multi-label neural network to classify risk levels across three disease categories",
+      "Implemented on-device inference with TensorFlow.js for low-latency alerts",
+      "Monitored five live sensor streams: temperature, humidity, CO₂, activity, and ammonia",
+    ],
+    technicalDetails: "React Native + Expo mobile app. TensorFlow.js runs the multi-label classifier on-device. IoT sensors stream data in real time over the local network. Model trained on labeled sensor readings correlated with known disease conditions.",
   },
 ];

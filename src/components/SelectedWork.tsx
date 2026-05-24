@@ -14,6 +14,7 @@ interface SelectedWorkProps {
 const categories: Array<"All" | Project["category"]> = [
   "All",
   "Research/ML",
+  "Hackathon",
   "Security",
   "Full-Stack",
   "Java/OOP",
