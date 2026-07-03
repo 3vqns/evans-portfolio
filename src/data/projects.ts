@@ -7,9 +7,9 @@ export interface Project {
   category: "Research/ML" | "Security" | "Full-Stack" | "Java/OOP" | "Hackathon";
   tags: string[];
   sceneId: string;
-  posterExt?: string;
+  posterExt?: "png" | "jpg" | "jpeg";
+  posterFit?: "cover" | "contain" | "cover-top";
   detailedDescription?: string;
-  challenges?: string[];
   keyAchievements?: string[];
   technicalDetails?: string;
   metrics?: Array<{ label: string; value: string }>;
@@ -126,6 +126,7 @@ export const projects: Project[] = [
     category: "Research/ML",
     tags: ["NLP", "BERT", "High Accuracy", "FICO"],
     sceneId: "fico",
+    posterFit: "cover-top",
     metrics: [
       { label: "Result", value: "Challenge Winners" },
       { label: "Accuracy", value: "~92%" },
@@ -184,6 +185,7 @@ export const projects: Project[] = [
     category: "Full-Stack",
     tags: ["Web App", "State Management"],
     sceneId: "expense",
+    posterFit: "contain",
     detailedDescription:
       "Developed a browser-based expense tracker that allows users to log and review spending. The project emphasizes strong fundamentals in frontend development, state management, and user-centric interface design using vanilla web technologies.",
     keyAchievements: [
@@ -247,7 +249,7 @@ export const projects: Project[] = [
   },
   {
     id: "poultryguard",
-    title: "PoultryGuard",
+    title: "AviGuard",
     outcome: "Building a flock health monitoring app that connects to real-time IoT sensor data and uses a multi-label neural network to predict disease risk levels for Heat Stress, Avian Flu, and Salmonella.",
     role: "Developer (Team Project)",
     stack: ["React Native", "Expo", "TensorFlow.js"],

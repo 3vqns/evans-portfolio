@@ -12,7 +12,6 @@ interface ProjectSectionProps {
 
 export default function ProjectSection({ project }: ProjectSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -32,7 +31,6 @@ export default function ProjectSection({ project }: ProjectSectionProps) {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
-      setScrollProgress(latest);
       if (latest > 0.2 && !hasCounted) {
         setHasCounted(true);
       }
@@ -189,9 +187,9 @@ export default function ProjectSection({ project }: ProjectSectionProps) {
                 alt={project.title}
                 fill
                 className={
-                  project.sceneId === "fico"
+                  project.posterFit === "cover-top"
                     ? "object-cover object-left-top"
-                    : project.sceneId === "expense"
+                    : project.posterFit === "contain"
                     ? "object-contain"
                     : "object-cover"
                 }

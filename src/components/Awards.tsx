@@ -38,7 +38,58 @@ const awards = [
   },
 ];
 
+function AwardCard({ award }: { award: typeof awards[0] }) {
+  return (
+    <motion.div variants={fadeInUp} className="relative group">
+      <div className="h-full bg-cream-50/5 backdrop-blur-sm border border-emerald-500/20 rounded-lg hover:border-emerald-500/40 transition-all duration-300 hover:bg-cream-50/10 overflow-hidden flex flex-col">
+        {/* Portrait image */}
+        <div className="relative w-full aspect-[3/4] overflow-hidden">
+          {award.imagePath ? (
+            <Image
+              src={award.imagePath}
+              alt={award.title}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-cream-50/5 to-jungle-900/40">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-10 h-10 text-emerald-500/30 mb-3"
+              >
+                <path d="M6 4h12v6a6 6 0 01-12 0V4z" />
+                <path d="M6 7H3a1 1 0 000 2c0 2.5 1.5 4.5 3.5 5.5" />
+                <path d="M18 7h3a1 1 0 010 2c0 2.5-1.5 4.5-3.5 5.5" />
+                <path d="M12 16v4" />
+                <path d="M8 20h8" />
+              </svg>
+              <span className="text-cream-50/25 text-xs uppercase tracking-[0.15em]">Photo coming</span>
+            </div>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="p-8 flex-1 flex flex-col">
+          <div className="text-5xl mb-6">{award.icon}</div>
+          <h3 className="text-2xl font-bold text-cream-50 mb-4 group-hover:text-emerald-300 transition-colors">
+            {award.title}
+          </h3>
+          <p className="text-cream-50/70 leading-relaxed">{award.description}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Awards() {
+  const firstRow = awards.slice(0, 3);
+  const lastRow = awards.slice(3);
+
   return (
     <section id="awards" className="min-h-screen pt-32 pb-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -55,7 +106,7 @@ export default function Awards() {
           </h2>
         </motion.div>
 
-        {/* Awards Grid */}
+        {/* First row: 3 cards */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -63,50 +114,30 @@ export default function Awards() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {awards.map((award, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="relative group"
-            >
-              <div className="h-full bg-cream-50/5 backdrop-blur-sm border border-emerald-500/20 rounded-lg hover:border-emerald-500/40 transition-all duration-300 hover:bg-cream-50/10 overflow-hidden flex flex-col">
-                {/* Portrait Image Slot */}
-                <div className="relative w-full aspect-[3/4] overflow-hidden">
-                  {award.imagePath ? (
-                    <Image
-                      src={award.imagePath}
-                      alt={`${award.title} presentation`}
-                      fill
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-cream-50/10 to-jungle-900/30 border-b border-emerald-500/20 rounded-t-lg">
-                      <span className="text-cream-50/40 text-sm">Presentation photo</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-8 flex-1 flex flex-col">
-                  {/* Icon */}
-                  <div className="text-5xl mb-6">{award.icon}</div>
-                  
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold text-cream-50 mb-4 group-hover:text-emerald-300 transition-colors">
-                    {award.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-cream-50/70 leading-relaxed">
-                    {award.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          {firstRow.map((award, index) => (
+            <AwardCard key={index} award={award} />
           ))}
         </motion.div>
+
+        {/* Last row: remaining cards, centered */}
+        {lastRow.length > 0 && (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className={`grid grid-cols-1 gap-8 mt-8 mx-auto ${
+              lastRow.length === 1
+                ? "md:grid-cols-1 md:max-w-sm"
+                : "md:grid-cols-2 md:max-w-2xl"
+            }`}
+          >
+            {lastRow.map((award, index) => (
+              <AwardCard key={index + firstRow.length} award={award} />
+            ))}
+          </motion.div>
+        )}
       </div>
     </section>
   );
 }
-

@@ -42,12 +42,21 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
+            href="mailto:evansarm3@gmail.com"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-4 bg-transparent border-2 border-emerald-500 text-emerald-400 font-semibold rounded-lg hover:bg-emerald-500/10 transition-colors duration-200"
+          >
+            Send an Email
+          </motion.a>
+
+          <motion.a
             href="https://github.com/3vqns"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-transparent border-2 border-emerald-500 text-emerald-400 font-semibold rounded-lg hover:bg-emerald-500/10 transition-colors duration-200"
+            className="px-8 py-4 bg-transparent border-2 border-emerald-500/50 text-emerald-400/70 font-semibold rounded-lg hover:bg-emerald-500/10 transition-colors duration-200"
           >
             View GitHub
           </motion.a>

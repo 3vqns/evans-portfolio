@@ -14,7 +14,7 @@ export default function Resume() {
   };
 
   return (
-    <section id="resume" className="min-h-screen pt-32 pb-16 px-6 flex items-center justify-center">
+    <section id="resume" className="py-32 px-6 flex items-center justify-center">
       <motion.div
         variants={fadeInUp}
         initial="hidden"

@@ -6,13 +6,6 @@ import { fadeInUp, staggerContainer } from "./MotionTokens";
 export default function Hero() {
   return (
     <section id="home" className="min-h-[80vh] flex items-center justify-center px-6 py-32 relative overflow-hidden">
-      {/* Subtle background grain */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-           style={{
-             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-           }}
-      />
-      
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -30,7 +23,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.p
           variants={fadeInUp}
-          className="text-lg md:text-xl lg:text-2xl mb-12 text-gray-400 leading-relaxed max-w-4xl mx-auto font-light"
+          className="text-lg md:text-xl lg:text-2xl mb-12 text-cream-50/70 leading-relaxed max-w-4xl mx-auto font-light"
         >
           Applied machine learning systems with real-world impact.
         </motion.p>

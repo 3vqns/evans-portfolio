@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Project } from "@/data/projects";
-import { hoverLift, hoverScale } from "./MotionTokens";
+import { hoverLift } from "./MotionTokens";
 
 interface ProjectCardProps {
   project: Project;
@@ -27,9 +27,9 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             alt={project.title}
             fill
             className={`${
-              project.sceneId === "fico"
+              project.posterFit === "cover-top"
                 ? "object-cover object-left-top"
-                : project.sceneId === "expense"
+                : project.posterFit === "contain"
                 ? "object-contain"
                 : "object-cover"
             } transition-transform duration-500 group-hover:scale-110`}
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           {/* View indicator */}
           <div className="flex items-center gap-2 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto">
             <span className="text-sm font-medium">View Project</span>
-            <motion.svg
+            <svg
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -87,7 +87,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-            </motion.svg>
+            </svg>
           </div>
         </div>
       </div>

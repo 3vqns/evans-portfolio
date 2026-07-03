@@ -82,25 +82,6 @@ export const maskReveal = {
   },
 };
 
-// Frame overlay animation (lines animate in)
-export const frameOverlay = {
-  hidden: {
-    scaleX: 0,
-    scaleY: 0,
-    opacity: 0,
-  },
-  visible: {
-    scaleX: 1,
-    scaleY: 1,
-    opacity: 1,
-    transition: {
-      duration: durations.slow,
-      ease: easing.primary,
-      staggerChildren: 0.05,
-    }
-  },
-};
-
 // Hover variants
 export const hoverLift = {
   rest: { y: 0 },

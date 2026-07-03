@@ -72,6 +72,7 @@ export default function SelectedWork({ projects, onProjectClick }: SelectedWorkP
               placeholder="Search projects, tech, tags..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search projects"
               className="w-full px-6 py-4 bg-cream-50/5 border border-emerald-500/20 rounded-lg text-cream-50 placeholder-cream-50/40 focus:outline-none focus:border-emerald-500/50 focus:bg-cream-50/10 transition-all"
             />
             <svg
@@ -95,6 +96,7 @@ export default function SelectedWork({ projects, onProjectClick }: SelectedWorkP
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
+                aria-pressed={selectedCategory === category}
                 className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
                   selectedCategory === category
                     ? "bg-emerald-500 text-white"
@@ -112,7 +114,8 @@ export default function SelectedWork({ projects, onProjectClick }: SelectedWorkP
           key={`${filteredProjects.length}-${searchQuery}-${selectedCategory}`}
           variants={staggerContainer}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredProjects.map((project) => (

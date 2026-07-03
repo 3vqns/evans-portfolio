@@ -1,32 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { durations, easing } from "./MotionTokens";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Awards", href: "/awards" },
-  { label: "About", href: "/about" },
-  { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Awards", href: "/#awards" },
+  { label: "Leadership", href: "/#leadership" },
+  { label: "Resume", href: "/#resume" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.nav
@@ -49,67 +67,61 @@ export default function Nav() {
               EA<span className="text-cream-50">III</span>
             </motion.span>
           </Link>
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              // Mark as active if pathname matches
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-sm font-medium relative group transition-colors ${
-                    isActive
-                      ? "text-emerald-400"
-                      : "text-cream-50/80 hover:text-emerald-400"
-                  }`}
-                >
-                  <motion.span whileHover={{ y: -2 }}>
-                    {item.label}
-                  </motion.span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300" />
-                </Link>
-              );
-            })}
+
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium relative group transition-colors text-cream-50/80 hover:text-emerald-400"
+              >
+                <motion.span whileHover={{ y: -2 }}>
+                  {item.label}
+                </motion.span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300" />
+              </Link>
+            ))}
           </div>
-          <div className="md:hidden relative">
+
+          {/* Mobile menu */}
+          <div className="lg:hidden relative" ref={menuRef}>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation"
               className="text-cream-50/90 hover:text-emerald-400 transition-colors"
             >
               Menu
             </button>
-            
-            {/* Mobile Menu Dropdown */}
-            {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute right-0 top-full mt-2 w-48 bg-jungle-900/95 backdrop-blur-md border border-emerald-500/20 rounded-lg shadow-lg overflow-hidden"
-              >
-                {navItems.map((item) => {
-                  const isActive = pathname === item.href;
-                  return (
+
+            <AnimatePresence>
+              {isMobileMenuOpen && (
+                <motion.div
+                  id="mobile-menu"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: durations.fast, ease: easing.primary }}
+                  className="absolute right-0 top-full mt-2 w-52 bg-jungle-900/95 backdrop-blur-md border border-emerald-500/20 rounded-lg shadow-lg overflow-hidden"
+                >
+                  {navItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-4 py-3 text-sm font-medium transition-colors ${
-                        isActive
-                          ? "text-emerald-400 bg-emerald-500/10"
-                          : "text-cream-50/80 hover:text-emerald-400 hover:bg-cream-50/5"
-                      }`}
+                      className="block px-4 py-3 text-sm font-medium transition-colors text-cream-50/80 hover:text-emerald-400 hover:bg-cream-50/5"
                     >
                       {item.label}
                     </Link>
-                  );
-                })}
-              </motion.div>
-            )}
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
     </motion.nav>
   );
 }
-
